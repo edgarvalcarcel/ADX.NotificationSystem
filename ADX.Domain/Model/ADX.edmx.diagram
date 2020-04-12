@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="90d1e80c79734a768713c214c3b18e5f" Name="Diagram1" ZoomLevel="99">
+        <EntityTypeShape EntityType="ADX.Domain.AspNetUser" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADX.Domain.MailTemplate" Width="1.5" PointX="5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADX.Domain.NotificationByUser" Width="1.5" PointX="2.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADX.Domain.SystemParameter" Width="1.5" PointX="2.25" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="ADX.Domain.FK_AspNetUsers_AspNetUsers_ManagerId" ManuallyRouted="false" />
+        <AssociationConnector Association="ADX.Domain.FK_NotificationByUser_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ADX.Domain.FK_NotificationByUser_MailTemplate_MailTemplateId" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ADX.Domain.UserNotification" Width="1.5" PointX="5.625" PointY="0.5" />
+        <AssociationConnector Association="ADX.Domain.FK_UserNotification_AspNetUsers_UserId" />
+        <AssociationConnector Association="ADX.Domain.FK_UserNotification_MailTemplate_TemplateId" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

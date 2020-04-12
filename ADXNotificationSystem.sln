@@ -1,0 +1,134 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestClients", "TestClients", "{DECA177B-E95E-478C-946A-AC8B4DF41964}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{56676F8F-24BE-4463-B2E0-C7B9ADADB9FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{0ADE68F0-184C-4CF0-AD5A-FF4430E6D354}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{E4B60320-295C-4E66-BEF3-AF174427813F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationClient", "NotificationClient\NotificationClient.csproj", "{72832BCE-6F9B-437D-9D1B-65155BE9F9CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADX.NotificationSystemService", "ADX.NotificationSystemService\ADX.NotificationSystemService.csproj", "{523AFF32-08CE-4B0D-B3EF-ACA58E3C81A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADX.Utilities", "ADX.Utilities\ADX.Utilities.csproj", "{6A1F2384-A380-41E7-A7F9-CA9F572D2124}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DispatcherClient", "DispatcherClient\DispatcherClient.csproj", "{FEE45581-AA6B-4D97-8005-18B47334CE7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADX.Dispatcher", "ADX.DispatcherSystemService\ADX.Dispatcher.csproj", "{B05439C8-B408-40BB-81EB-DA4E11EF98E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADX.Entities", "ADX.Entities\ADX.Entities.csproj", "{72C739A7-FC21-4A99-8710-B5F82B23392B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADX.Domain", "ADX.Domain\ADX.Domain.csproj", "{0CC70D4E-5D70-4BAD-89AB-946E732CE684}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADX.DataAccessLayer", "ADX.DataAccessLayer\ADX.DataAccessLayer.csproj", "{6FB5968E-9DEC-4FC5-9C5C-06499A3FBC2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADX.BusinessLayer", "ADX.BusinessLayer\ADX.BusinessLayer.csproj", "{6F1C24E0-813F-470D-B48C-FAB82ED7167F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72832BCE-6F9B-437D-9D1B-65155BE9F9CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72832BCE-6F9B-437D-9D1B-65155BE9F9CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72832BCE-6F9B-437D-9D1B-65155BE9F9CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72832BCE-6F9B-437D-9D1B-65155BE9F9CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{523AFF32-08CE-4B0D-B3EF-ACA58E3C81A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{523AFF32-08CE-4B0D-B3EF-ACA58E3C81A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{523AFF32-08CE-4B0D-B3EF-ACA58E3C81A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{523AFF32-08CE-4B0D-B3EF-ACA58E3C81A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A1F2384-A380-41E7-A7F9-CA9F572D2124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A1F2384-A380-41E7-A7F9-CA9F572D2124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A1F2384-A380-41E7-A7F9-CA9F572D2124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A1F2384-A380-41E7-A7F9-CA9F572D2124}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEE45581-AA6B-4D97-8005-18B47334CE7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEE45581-AA6B-4D97-8005-18B47334CE7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEE45581-AA6B-4D97-8005-18B47334CE7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEE45581-AA6B-4D97-8005-18B47334CE7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B05439C8-B408-40BB-81EB-DA4E11EF98E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B05439C8-B408-40BB-81EB-DA4E11EF98E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B05439C8-B408-40BB-81EB-DA4E11EF98E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B05439C8-B408-40BB-81EB-DA4E11EF98E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72C739A7-FC21-4A99-8710-B5F82B23392B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72C739A7-FC21-4A99-8710-B5F82B23392B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72C739A7-FC21-4A99-8710-B5F82B23392B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72C739A7-FC21-4A99-8710-B5F82B23392B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CC70D4E-5D70-4BAD-89AB-946E732CE684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CC70D4E-5D70-4BAD-89AB-946E732CE684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CC70D4E-5D70-4BAD-89AB-946E732CE684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CC70D4E-5D70-4BAD-89AB-946E732CE684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FB5968E-9DEC-4FC5-9C5C-06499A3FBC2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FB5968E-9DEC-4FC5-9C5C-06499A3FBC2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FB5968E-9DEC-4FC5-9C5C-06499A3FBC2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FB5968E-9DEC-4FC5-9C5C-06499A3FBC2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F1C24E0-813F-470D-B48C-FAB82ED7167F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F1C24E0-813F-470D-B48C-FAB82ED7167F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F1C24E0-813F-470D-B48C-FAB82ED7167F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F1C24E0-813F-470D-B48C-FAB82ED7167F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{72832BCE-6F9B-437D-9D1B-65155BE9F9CC} = {DECA177B-E95E-478C-946A-AC8B4DF41964}
+		{523AFF32-08CE-4B0D-B3EF-ACA58E3C81A4} = {56676F8F-24BE-4463-B2E0-C7B9ADADB9FF}
+		{6A1F2384-A380-41E7-A7F9-CA9F572D2124} = {0ADE68F0-184C-4CF0-AD5A-FF4430E6D354}
+		{FEE45581-AA6B-4D97-8005-18B47334CE7D} = {DECA177B-E95E-478C-946A-AC8B4DF41964}
+		{B05439C8-B408-40BB-81EB-DA4E11EF98E5} = {56676F8F-24BE-4463-B2E0-C7B9ADADB9FF}
+		{72C739A7-FC21-4A99-8710-B5F82B23392B} = {E4B60320-295C-4E66-BEF3-AF174427813F}
+		{0CC70D4E-5D70-4BAD-89AB-946E732CE684} = {E4B60320-295C-4E66-BEF3-AF174427813F}
+		{6FB5968E-9DEC-4FC5-9C5C-06499A3FBC2B} = {E4B60320-295C-4E66-BEF3-AF174427813F}
+		{6F1C24E0-813F-470D-B48C-FAB82ED7167F} = {0ADE68F0-184C-4CF0-AD5A-FF4430E6D354}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9415F31D-5A71-4927-BFAD-52F00AE8EC69}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 10
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://adx365dev1.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = NotificationClient\\NotificationClient.csproj
+		SccProjectTopLevelParentUniqueName1 = ADXNotificationSystem.sln
+		SccProjectName1 = NotificationClient
+		SccLocalPath1 = NotificationClient
+		SccProjectUniqueName2 = ADX.NotificationSystemService\\ADX.NotificationSystemService.csproj
+		SccProjectTopLevelParentUniqueName2 = ADXNotificationSystem.sln
+		SccProjectName2 = ADX.NotificationSystemService
+		SccLocalPath2 = ADX.NotificationSystemService
+		SccProjectUniqueName3 = ADX.Utilities\\ADX.Utilities.csproj
+		SccProjectTopLevelParentUniqueName3 = ADXNotificationSystem.sln
+		SccProjectName3 = ADX.Utilities
+		SccLocalPath3 = ADX.Utilities
+		SccProjectUniqueName4 = DispatcherClient\\DispatcherClient.csproj
+		SccProjectTopLevelParentUniqueName4 = ADXNotificationSystem.sln
+		SccProjectName4 = DispatcherClient
+		SccLocalPath4 = DispatcherClient
+		SccProjectUniqueName5 = ADX.DispatcherSystemService\\ADX.Dispatcher.csproj
+		SccProjectTopLevelParentUniqueName5 = ADXNotificationSystem.sln
+		SccProjectName5 = ADX.DispatcherSystemService
+		SccLocalPath5 = ADX.DispatcherSystemService
+		SccProjectUniqueName6 = ADX.Entities\\ADX.Entities.csproj
+		SccProjectTopLevelParentUniqueName6 = ADXNotificationSystem.sln
+		SccProjectName6 = ADX.Entities
+		SccLocalPath6 = ADX.Entities
+		SccProjectUniqueName7 = ADX.Domain\\ADX.Domain.csproj
+		SccProjectTopLevelParentUniqueName7 = ADXNotificationSystem.sln
+		SccProjectName7 = ADX.Domain
+		SccLocalPath7 = ADX.Domain
+		SccProjectUniqueName8 = ADX.DataAccessLayer\\ADX.DataAccessLayer.csproj
+		SccProjectTopLevelParentUniqueName8 = ADXNotificationSystem.sln
+		SccProjectName8 = ADX.DataAccessLayer
+		SccLocalPath8 = ADX.DataAccessLayer
+		SccProjectUniqueName9 = ADX.BusinessLayer\\ADX.BusinessLayer.csproj
+		SccProjectTopLevelParentUniqueName9 = ADXNotificationSystem.sln
+		SccProjectName9 = ADX.BusinessLayer
+		SccLocalPath9 = ADX.BusinessLayer
+	EndGlobalSection
+EndGlobal

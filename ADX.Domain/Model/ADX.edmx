@@ -1,0 +1,524 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ADX.Domain.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="City" Type="nvarchar(max)" />
+          <Property Name="ConcurrencyStamp" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="GroupId" Type="int" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEnd" Type="datetimeoffset" Precision="7" />
+          <Property Name="ManagerId" Type="nvarchar" MaxLength="450" />
+          <Property Name="NormalizedEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="NormalizedUserName" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar(max)" />
+          <Property Name="ResetPasswordNeeded" Type="bit" Nullable="false" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="State" Type="int" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="UserCode" Type="int" Nullable="false" />
+          <Property Name="UserFirstName" Type="nvarchar(max)" />
+          <Property Name="UserLastName" Type="nvarchar(max)" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" />
+          <Property Name="Zip" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetimeoffset" Precision="7" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="CellphoneNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="CellphoneConfirmed" Type="bit" Nullable="false" />
+          <Property Name="InfoUpdateNeeded" Type="bit" Nullable="false" />
+          <Property Name="CellphoneVerificationCode" Type="nvarchar" MaxLength="9" />
+        </EntityType>
+        <EntityType Name="MailTemplate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Body" Type="nvarchar(max)" />
+          <Property Name="Subject" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="SMSText" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="UserCanModify" Type="bit" Nullable="false" />
+          <Property Name="SmsTextType" Type="nvarchar(max)" />
+          <Property Name="VisibleToDealer" Type="bit" Nullable="false" />
+          <Property Name="VisibleToInspector" Type="bit" Nullable="false" />
+          <Property Name="BccToAccountManager" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NotificationByUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="MailTemplateId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="MailTemplateId" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="ByEmail" Type="bit" Nullable="false" />
+          <Property Name="ByMobile" Type="bit" Nullable="false" />
+          <Property Name="BySMS" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SystemParameter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="DefaultValue" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="TypeCode" Type="smallint" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="UserNotification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Attachments" Type="nvarchar(max)" />
+          <Property Name="ByEmail" Type="bit" Nullable="false" />
+          <Property Name="BySMS" Type="bit" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="EmailBody" Type="nvarchar(max)" />
+          <Property Name="EmailSubject" Type="nvarchar(max)" />
+          <Property Name="Mobile" Type="nvarchar(max)" />
+          <Property Name="SMSText" Type="nvarchar(max)" />
+          <Property Name="TemplateId" Type="nvarchar" MaxLength="450" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="450" />
+          <Property Name="CreatedAt" Type="datetimeoffset" Precision="7" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AspNetUsers_AspNetUsers_ManagerId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="AspNetUsers1" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers1">
+              <PropertyRef Name="ManagerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NotificationByUser_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NotificationByUser" Type="Self.NotificationByUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NotificationByUser">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NotificationByUser_MailTemplate_MailTemplateId">
+          <End Role="MailTemplate" Type="Self.MailTemplate" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NotificationByUser" Type="Self.NotificationByUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MailTemplate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NotificationByUser">
+              <PropertyRef Name="MailTemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserNotification_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserNotification" Type="Self.UserNotification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserNotification">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserNotification_MailTemplate_TemplateId">
+          <End Role="MailTemplate" Type="Self.MailTemplate" Multiplicity="0..1" />
+          <End Role="UserNotification" Type="Self.UserNotification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MailTemplate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserNotification">
+              <PropertyRef Name="TemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ADXDomainStoreContainer">
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MailTemplate" EntityType="Self.MailTemplate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NotificationByUser" EntityType="Self.NotificationByUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemParameter" EntityType="Self.SystemParameter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserNotification" EntityType="Self.UserNotification" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AspNetUsers_AspNetUsers_ManagerId" Association="Self.FK_AspNetUsers_AspNetUsers_ManagerId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUsers1" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NotificationByUser_AspNetUsers_UserId" Association="Self.FK_NotificationByUser_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="NotificationByUser" EntitySet="NotificationByUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NotificationByUser_MailTemplate_MailTemplateId" Association="Self.FK_NotificationByUser_MailTemplate_MailTemplateId">
+            <End Role="MailTemplate" EntitySet="MailTemplate" />
+            <End Role="NotificationByUser" EntitySet="NotificationByUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserNotification_AspNetUsers_UserId" Association="Self.FK_UserNotification_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="UserNotification" EntitySet="UserNotification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserNotification_MailTemplate_TemplateId" Association="Self.FK_UserNotification_MailTemplate_TemplateId">
+            <End Role="MailTemplate" EntitySet="MailTemplate" />
+            <End Role="UserNotification" EntitySet="UserNotification" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ADX.Domain" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConcurrencyStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="GroupId" Type="Int32" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEnd" Type="DateTimeOffset" Precision="7" />
+          <Property Name="ManagerId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="NormalizedEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="NormalizedUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ResetPasswordNeeded" Type="Boolean" Nullable="false" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="UserCode" Type="Int32" Nullable="false" />
+          <Property Name="UserFirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserLastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Zip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTimeOffset" Nullable="false" Precision="7" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="CellphoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers1" Relationship="Self.FK_AspNetUsers_AspNetUsers_ManagerId" FromRole="AspNetUsers" ToRole="AspNetUsers1" />
+          <NavigationProperty Name="AspNetUser1" Relationship="Self.FK_AspNetUsers_AspNetUsers_ManagerId" FromRole="AspNetUsers1" ToRole="AspNetUsers" />
+          <NavigationProperty Name="NotificationByUsers" Relationship="Self.FK_NotificationByUser_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="NotificationByUser" />
+          <NavigationProperty Name="UserNotifications" Relationship="ADX.Domain.FK_UserNotification_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="UserNotification" />
+          <Property Name="CellphoneConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="InfoUpdateNeeded" Type="Boolean" Nullable="false" />
+          <Property Name="CellphoneVerificationCode" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MailTemplate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SMSText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="NotificationByUsers" Relationship="Self.FK_NotificationByUser_MailTemplate_MailTemplateId" FromRole="MailTemplate" ToRole="NotificationByUser" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserCanModify" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="UserNotifications" Relationship="ADX.Domain.FK_UserNotification_MailTemplate_TemplateId" FromRole="MailTemplate" ToRole="UserNotification" />
+          <Property Name="SmsTextType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VisibleToDealer" Type="Boolean" Nullable="false" />
+          <Property Name="VisibleToInspector" Type="Boolean" Nullable="false" />
+          <Property Name="BccToAccountManager" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NotificationByUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="MailTemplateId" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MailTemplateId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ByEmail" Type="Boolean" Nullable="false" />
+          <Property Name="ByMobile" Type="Boolean" Nullable="false" />
+          <Property Name="BySMS" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_NotificationByUser_AspNetUsers_UserId" FromRole="NotificationByUser" ToRole="AspNetUsers" />
+          <NavigationProperty Name="MailTemplate" Relationship="Self.FK_NotificationByUser_MailTemplate_MailTemplateId" FromRole="NotificationByUser" ToRole="MailTemplate" />
+        </EntityType>
+        <EntityType Name="SystemParameter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="DefaultValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TypeCode" Type="Int16" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_AspNetUsers_AspNetUsers_ManagerId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="AspNetUsers1" Type="Self.AspNetUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUsers1">
+              <PropertyRef Name="ManagerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NotificationByUser_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NotificationByUser" Type="Self.NotificationByUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NotificationByUser">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NotificationByUser_MailTemplate_MailTemplateId">
+          <End Role="MailTemplate" Type="Self.MailTemplate" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="NotificationByUser" Type="Self.NotificationByUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MailTemplate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NotificationByUser">
+              <PropertyRef Name="MailTemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Context" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="MailTemplates" EntityType="Self.MailTemplate" />
+          <EntitySet Name="NotificationByUsers" EntityType="Self.NotificationByUser" />
+          <EntitySet Name="SystemParameters" EntityType="Self.SystemParameter" />
+          <AssociationSet Name="FK_AspNetUsers_AspNetUsers_ManagerId" Association="Self.FK_AspNetUsers_AspNetUsers_ManagerId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUsers1" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NotificationByUser_AspNetUsers_UserId" Association="Self.FK_NotificationByUser_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="NotificationByUser" EntitySet="NotificationByUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NotificationByUser_MailTemplate_MailTemplateId" Association="Self.FK_NotificationByUser_MailTemplate_MailTemplateId">
+            <End Role="MailTemplate" EntitySet="MailTemplates" />
+            <End Role="NotificationByUser" EntitySet="NotificationByUsers" />
+          </AssociationSet>
+          <EntitySet Name="UserNotifications" EntityType="ADX.Domain.UserNotification" />
+          <AssociationSet Name="FK_UserNotification_AspNetUsers_UserId" Association="ADX.Domain.FK_UserNotification_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="UserNotification" EntitySet="UserNotifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserNotification_MailTemplate_TemplateId" Association="ADX.Domain.FK_UserNotification_MailTemplate_TemplateId">
+            <End Role="MailTemplate" EntitySet="MailTemplates" />
+            <End Role="UserNotification" EntitySet="UserNotifications" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="UserNotification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Attachments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ByEmail" Type="Boolean" Nullable="false" />
+          <Property Name="BySMS" Type="Boolean" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmailBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmailSubject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SMSText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TemplateId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="ADX.Domain.FK_UserNotification_AspNetUsers_UserId" FromRole="UserNotification" ToRole="AspNetUser" />
+          <NavigationProperty Name="MailTemplate" Relationship="ADX.Domain.FK_UserNotification_MailTemplate_TemplateId" FromRole="UserNotification" ToRole="MailTemplate" />
+          <Property Name="CreatedAt" Type="DateTimeOffset" Nullable="false" Precision="7" />
+        </EntityType>
+        <Association Name="FK_UserNotification_AspNetUsers_UserId">
+          <End Type="ADX.Domain.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="ADX.Domain.UserNotification" Role="UserNotification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserNotification">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserNotification_MailTemplate_TemplateId">
+          <End Type="ADX.Domain.MailTemplate" Role="MailTemplate" Multiplicity="0..1" />
+          <End Type="ADX.Domain.UserNotification" Role="UserNotification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MailTemplate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserNotification">
+              <PropertyRef Name="TemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ADXDomainStoreContainer" CdmEntityContainer="Context">
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="ADX.Domain.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="CellphoneVerificationCode" ColumnName="CellphoneVerificationCode" />
+                <ScalarProperty Name="InfoUpdateNeeded" ColumnName="InfoUpdateNeeded" />
+                <ScalarProperty Name="CellphoneConfirmed" ColumnName="CellphoneConfirmed" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ConcurrencyStamp" ColumnName="ConcurrencyStamp" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEnd" ColumnName="LockoutEnd" />
+                <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
+                <ScalarProperty Name="NormalizedEmail" ColumnName="NormalizedEmail" />
+                <ScalarProperty Name="NormalizedUserName" ColumnName="NormalizedUserName" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="ResetPasswordNeeded" ColumnName="ResetPasswordNeeded" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="UserFirstName" ColumnName="UserFirstName" />
+                <ScalarProperty Name="UserLastName" ColumnName="UserLastName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CellphoneNumber" ColumnName="CellphoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MailTemplates">
+            <EntityTypeMapping TypeName="ADX.Domain.MailTemplate">
+              <MappingFragment StoreEntitySet="MailTemplate">
+                <ScalarProperty Name="BccToAccountManager" ColumnName="BccToAccountManager" />
+                <ScalarProperty Name="VisibleToInspector" ColumnName="VisibleToInspector" />
+                <ScalarProperty Name="VisibleToDealer" ColumnName="VisibleToDealer" />
+                <ScalarProperty Name="SmsTextType" ColumnName="SmsTextType" />
+                <ScalarProperty Name="UserCanModify" ColumnName="UserCanModify" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SMSText" ColumnName="SMSText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NotificationByUsers">
+            <EntityTypeMapping TypeName="ADX.Domain.NotificationByUser">
+              <MappingFragment StoreEntitySet="NotificationByUser">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="MailTemplateId" ColumnName="MailTemplateId" />
+                <ScalarProperty Name="ByEmail" ColumnName="ByEmail" />
+                <ScalarProperty Name="ByMobile" ColumnName="ByMobile" />
+                <ScalarProperty Name="BySMS" ColumnName="BySMS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemParameters">
+            <EntityTypeMapping TypeName="ADX.Domain.SystemParameter">
+              <MappingFragment StoreEntitySet="SystemParameter">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserNotifications">
+            <EntityTypeMapping TypeName="ADX.Domain.UserNotification">
+              <MappingFragment StoreEntitySet="UserNotification">
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+                <ScalarProperty Name="SMSText" ColumnName="SMSText" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="EmailSubject" ColumnName="EmailSubject" />
+                <ScalarProperty Name="EmailBody" ColumnName="EmailBody" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="BySMS" ColumnName="BySMS" />
+                <ScalarProperty Name="ByEmail" ColumnName="ByEmail" />
+                <ScalarProperty Name="Attachments" ColumnName="Attachments" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
